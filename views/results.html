@@ -1,0 +1,10 @@
+<div class="row" ng-controller="questionController as qCtrl">
+	<div class="col-md-12">
+		<h2>Results</h2>
+		<h3>{{$parent.property}}</h3>
+		<br>
+		<h4>Your Final Score = {{qCtrl.score}}</h4>
+		<br>
+		<button ui-sref="home" ng-click="qCtrl.reset();vm.reset()" class="btn btn-primary">TRY AGAIN!</button>
+	</div>
+</div>

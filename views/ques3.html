@@ -1,0 +1,39 @@
+<div class="row" ng-controller="questionController as qCtrl">
+	<div class="col-md-9">
+		<form name="qCtrl.form" ng-submit="qCtrl.eval(qCtrl.selectedOption,qCtrl.qno)" class="form-group">
+			<div class="row">
+				<div class="col-md-12" ng-init = "qCtrl.qno=2">
+					<h4>{{qCtrl.questions[qCtrl.qno]}}</h4>
+					<!-- <h5>{{qCtrl.selectedOption}}</h5> -->
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<table>
+						<tr ng-repeat="data in qCtrl.options[qCtrl.qno]">
+							<td>
+								<div class="radio">
+								    <label>
+								        <input type="radio" ng-model="qCtrl.selectedOption" name="options" id="option{{data.id}}" value="{{data.option}}" ng-change="qCtrl.toggleNext()">
+								            {{data.option}}
+								    </label>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-md-4">
+					<a ui-sref="ques4" ng-disabled="qCtrl.nextButton" class="btn btn-default" type = "submit" ng-click="qCtrl.eval(qCtrl.selectedOption,qCtrl.qno)">Next</a>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="row">
+		<div class="col-md-3">
+			<h4 ng-model="qCtrl.score">Your Score : {{qCtrl.score}}</h4>
+		</div>
+	</div>
+</div>
